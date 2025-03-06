@@ -1,0 +1,48 @@
+body {
+    background-color: linear-gradient( to bottom color red);
+
+}
+.contenedor{
+ padding: 300px;
+ background:linear-gradient(to bottom,#45e9fc, #b8ecf5);}
+  .caja{
+    width: 170px;
+    height: 170px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: honeydew;
+    font-weight: bold;
+    border-radius: 25px;
+    text-transform: capitalize;
+    margin: 13px;
+  }
+  .caja1{
+      background-color: #ed2e30;
+  }
+  .caja2{
+
+    background-color: #57b579;
+  }
+  .caja3{
+    background:linear-gradient(to right,#f8a33b, #ff5821);
+  }
+  .caja4{
+    background: radial-gradient(circle, #001c84 25%,#00e5ff 70%);
+  }
+  .caja5{
+    background: linear-gradient(to right, #39f0c7 0%, #00d0fe 50%, #001bff 100%);
+  }
+
+  .caja6{
+    background: linear-gradient(135deg, #cd47a1, #3a8ae7);    
+  }
+  .caja7{
+    background: radial-gradient(circle, #f9e0af 20%, #d3c379 50%, #3cbdd9 100%);
+  }
+  .caja8{
+    background: radial-gradient(at bottom left, #f66137 10%, #f7e32b 40%, #349de2 100%);  }
+    .caja9 {
+      background: conic-gradient(rgb(255, 1, 1),rgb(38, 0, 255),rgb(16, 197, 188),rgb(121, 248, 2),rgb(160, 8, 3) );
+      border-radius: 15px;
+  }

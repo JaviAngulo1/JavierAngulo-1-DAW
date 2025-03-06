@@ -1,0 +1,202 @@
+* {
+    margin: 0px;
+}
+
+body{
+    background-image:url(../img/bg.png) ;
+    
+}
+.contenedor {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "main aside"
+        "main aside"
+        "footer footer";
+    gap: 15px;
+    
+}
+
+nav {
+    background-color: #222;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    word-spacing: -0px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff0000;
+}
+
+
+
+
+header {
+    grid-area: header;
+    background-color: white;
+    padding: 0px;
+    text-align: center;
+}
+
+
+main {
+    grid-area: main;
+    padding: 20px;
+    margin: 30px;
+    margin-top: 0px;
+}
+
+
+aside {
+    grid-area: aside;
+    padding: 20px;
+}
+
+
+footer {
+    grid-area: footer;
+    padding: 20px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+img {
+    width: 350px;
+    height: auto;
+}
+
+nav {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.caja1,.caja2, .caja3, .caja4{
+    background-color: white;
+}
+
+p{
+    text-align: left;
+    padding: 10px;
+}
+
+h1, h2, h3 {
+    padding: 12px;
+}
+
+hr {
+    height: 1px;
+    width: 1200px;
+    background-color: black;
+    margin: 0 auto; 
+}
+.caja2 {
+    display: grid;
+    grid-template-rows: 0fr;
+    grid-template-columns: 3fr 1fr; 
+    grid-template-areas: 
+    "p figure"
+    "p figure"
+    "p figure"
+    "p figure"
+    "p figure";
+    gap: 10px;
+    align-items: center;
+}
+
+.caja2 figure {
+    grid-area: figure;
+    max-width: 100%; 
+}
+
+.cajagris{
+    background-color: rgba(12, 12, 12, 0.692);
+    max-width: 100%;
+    padding: 60PX;
+    color: white;
+    font-style: italic;
+}
+
+.cajagris p{
+    text-align: center;
+}
+
+#figura{
+    height: auto;
+    width: 250px;
+}
+
+.comillas{
+    color: red;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.blackk{
+    font-weight: bold;
+    font-size: large;
+}
+
+table{
+
+    width: 60%; 
+    margin: 20px auto; 
+    border-spacing: 4px;
+    border: none;
+}
+
+thead{
+    background-color: black;
+    color: white;
+}
+
+th, td{
+    border: none;
+    padding: 12px;
+    text-align: left;
+}
+
+.primero{
+    background-color: rgb(240, 211, 45);
+}
+
+.segundo{
+    background-color: rgb(180, 168, 168);
+}
+
+.tercero{
+background-color: chocolate;}
+
+.caja4{
+    padding: 20px;
+
+}
+
+footer p {
+    text-align: center;
+    letter-spacing: 8px;
+}
+
+.rojo{
+    color: red;
+}
+
+nav{
+    word-spacing: 20px;
+}

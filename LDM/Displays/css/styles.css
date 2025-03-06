@@ -1,0 +1,127 @@
+
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+
+
+
+h1 {
+    color: #007EFE;
+    font-size: 40px;
+    margin-top: 40px;
+}
+
+
+
+.seccion {
+    background: #FFFFFF;
+    padding: 25px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 800px auto;
+    max-width: 800px;
+}
+
+
+
+
+h2 {
+    font-size: 18px;
+    color: #464646;
+    border-bottom: 3px solid #057EFF;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+
+
+
+.block {
+    display: block;
+    background: #FFCCCB;
+    width: 400px;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 7px;
+    border: 3px solid #FF9F8D;
+}
+
+
+
+
+.inline {
+    display: inline;
+    background: #81C784;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 7px;
+    border: 3px solid #37945C;
+}
+
+
+
+
+.inline-block {
+    display: inline-block;
+    background: #64B5F6;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 7px;
+    border: 3px solid #1284FC
+}
+
+
+
+
+.padre {
+    display: block;
+    background: #E1BEE7;
+    padding: 20px;
+    margin: 5px auto;
+    border-radius: 7px;
+    border: 3px solid #A63DB8;
+}
+
+
+
+
+.inherit {
+    display: inherit;
+    background: #BA68C8;
+    padding: 10px;
+    border-radius: 7px;
+    border: 3px solid #70209D;
+}
+
+
+
+
+.none {
+    display: none;
+}
+
+
+
+
+footer {
+    background: #C5CAE9;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+
