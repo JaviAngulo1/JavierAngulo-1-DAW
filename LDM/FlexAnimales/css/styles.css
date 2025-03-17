@@ -1,0 +1,126 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0ebf8;
+    text-align: center;
+}
+
+/* Contenedor principal */
+#contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera */
+header {
+    background-color: #79a7d2;
+    padding: 20px 0;
+    color: #000;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Sección principal */
+section {
+    padding: 20px;
+}
+
+#mascotas {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#titulo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #79a7d2;
+}
+
+/* Artículo de beneficios */
+article {
+    padding: 20px;
+}
+
+article h2 {
+    color: #000;
+    font-size: 20px;
+}
+
+article ul {
+    text-align: left;
+    max-width: 80%;
+    margin: 0 auto;
+    list-style-type: disc;
+}
+
+/* Galería de imágenes */
+#gallery {
+    padding: 20px;
+    color: #79a7d2;
+}
+
+#photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#photos img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de curiosidades */
+aside {
+    background-color: #d3e3fc;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+aside h2 {
+    color: #000;
+}
+
+aside ul {
+    text-align: left;
+    max-width: 80%;
+    margin: 0 auto;
+    list-style-type: square;
+}
+
+/* Pie de página */
+footer {
+    background-color: #79a7d2;
+    padding: 10px;
+    color: #000;
+    font-size: 14px;
+}
+@media (max-width: 1024px) { /* Para tablets */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) { /* Para móviles */
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
