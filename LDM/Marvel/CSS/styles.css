@@ -1,0 +1,112 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #000;
+  }
+  
+  header {
+    background-color: #c40000;
+    color: white;
+    text-align: right;        
+    padding: 1rem 2rem 1rem 1rem; 
+  }
+  
+ 
+ 
+  header img {
+    width: 30%;         
+    height: auto;
+    object-fit: contain;  
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+  
+  
+  header h1 {
+    margin: 0.5rem 0 0.3rem 0;
+    font-size: 1.5rem;
+  }
+  
+  .subtitulo {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-left: 2rem;   
+    text-align: left;    
+    width: 90%;
+  }
+  
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+  
+  aside {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .izquierda {
+    background-color: #f0f0f0;}
+  
+  .derecha {
+    background-color: #f0f0f0; 
+    text-align: right;  
+  }
+  
+  .centro {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .header-imagen img {
+    width: 600px; 
+    height: auto;
+  }
+  .bloque-derecha h2 {
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  
+  .texto-derecha {
+    max-width: 400px;
+    text-align: justify;
+  }
+  
+  .curiosidades {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #c40000;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .contenedor > aside {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+  
+  
+  footer {
+    background-color: #c40000;
+    color: white;
+    text-align: right;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  
+  
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
+  
