@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificador de Tarjetas</title>
+</head>
+<body>
+  <h1>Comprueba el tipo de tarjeta</h1>
+  <script>
+    function verificarLuhn(numero) {
+      let digitos = numero.replace(/\D/g, "").split("").map(Number).reverse();
+      for (let i = 1; i < digitos.length; i += 2) {
+        digitos[i] *= 2;
+        if (digitos[i] > 9) digitos[i] -= 9;
+      }
+      let suma = digitos.reduce((a, b) => a + b, 0);
+      return suma % 10 === 0;
+    }
+
+    function tipoTarjeta(numero) {
+      let limpio = numero.replace(/\D/g, "");
+      if (!verificarLuhn(limpio)) return "❌ invalid";
+
+      if (/^3[47]\d{13}$/.test(limpio)) return "💳 American Express ✅";
+      if (/^4\d{12}(\d{3})?$/.test(limpio)) return "💳 Visa ✅";
+      if (/^5[1-5]\d{14}$/.test(limpio)) return "💳 MasterCard ✅";
+
+      return "❌ invalid";
+    }
+
+    let numero = prompt("Ingresa el número de tarjeta:");
+    alert(tipoTarjeta(numero));
+  </script>
+</body>
+</html>

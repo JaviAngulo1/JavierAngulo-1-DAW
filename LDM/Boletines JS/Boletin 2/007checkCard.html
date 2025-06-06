@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificador de Tarjetas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      font-size: 18px;
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>💳 Verificador de Tarjetas</h1>
+  <p>Ingresa el número de tarjeta:</p>
+  <input type="text" id="numero" placeholder="Ej: 4111-1111-1111-1111">
+  <br>
+  <button onclick="verificarTarjeta()">Verificar</button>
+  <div id="resultado"></div>
+
+  <script src="007checkCard.js" defer></script>
+</body>
+</html>

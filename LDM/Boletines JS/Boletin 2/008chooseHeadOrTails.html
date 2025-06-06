@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cara o Cruz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Juego: Cara o Cruz</h1>
+  <p>Escoge una opción:</p>
+  <button onclick="jugar('CARA')">🪙 CARA</button>
+  <button onclick="jugar('CRUZ')">✖️ CRUZ</button>
+  <button onclick="jugar('SALIR')">SALIR</button>
+
+  <h2 id="resultado"></h2>
+  <p>Rondas seguidas acertadas: <span id="contadorActual">0</span></p>
+  <p>Máxima racha: <span id="maximo">0</span></p>
+
+  <script src="008chooseHeadOrTails.js" defer></script>
+</body>
+</html>

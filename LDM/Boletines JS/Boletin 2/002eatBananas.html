@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Monos y Bananas 🐒🍌</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Hay suficientes bananas para los monos? 🍌</h1>
+
+  <label for="monos">¿Cuántos monos hay?</label>
+  <input type="number" id="monos" min="1"><br>
+
+  <label for="bananas">¿Cuántas bananas hay en total?</label>
+  <input type="number" id="bananas" min="0"><br>
+
+  <button onclick="pedirBananasPorMono()">Continuar</button>
+
+  <div id="formularioBananas"></div>
+  <div id="resultado" style="margin-top:20px; font-weight:bold;"></div>
+
+  <script src="002eatBananas.js" defer></script>
+</body>
+</html>

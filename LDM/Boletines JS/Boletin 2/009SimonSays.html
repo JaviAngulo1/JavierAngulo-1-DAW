@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simón Dice</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .color-button {
+      width: 100px;
+      height: 100px;
+      margin: 15px;
+      border: 5px solid #333;
+      border-radius: 15px;
+      display: inline-block;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .color-button.active {
+      opacity: 1;
+      box-shadow: 0 0 20px white;
+    }
+
+    #rojo { background-color: red; }
+    #verde { background-color: green; }
+    #amarillo { background-color: gold; }
+
+    #config, #mensaje {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Simón Dice</h1>
+
+  <div id="config">
+    <label for="rondas">Rondas a jugar (dejar vacío para modo infinito): </label>
+    <input type="number" id="rondas" min="1">
+    <button onclick="iniciarJuego()">Comenzar</button>
+  </div>
+
+  <div id="juego" style="display:none;">
+    <h2 id="rondaActual">Ronda 1</h2>
+
+    <div id="panel">
+      <div class="color-button" id="rojo" onclick="ingresarColor('rojo')"></div>
+      <div class="color-button" id="verde" onclick="ingresarColor('verde')"></div>
+      <div class="color-button" id="amarillo" onclick="ingresarColor('amarillo')"></div>
+    </div>
+
+    
+  </div>
+    
+    <p id="mensaje"></p>
+  
+    <script src="009SimonSays.js" defer></script>
+</body>
+</html>

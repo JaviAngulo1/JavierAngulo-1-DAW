@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificador Luhn</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 18px;
+      width: 300px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔢 Verificador Luhn</h1>
+  <p>Ingresa un número de tarjeta o código:</p>
+  <input type="text" id="numero" placeholder="Ej: 4012-8888-8888-1881">
+  <br>
+  <button onclick="verificar()">Verificar</button>
+  <div id="resultado"></div>
+
+  <script src="006verifyLuhn.js" defer></script>
+</body>
+</html>
+

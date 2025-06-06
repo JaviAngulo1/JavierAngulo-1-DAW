@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎂 Adivina mi cumpleaños</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 10px;
+      margin: 5px;
+      width: 80px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Adivina mi cumpleaños</h1>
+  <p>Te quedan <span id="vidas">10</span> vidas</p>
+  <p>Ingresa el <strong>día</strong> y el <strong>mes</strong> (números):</p>
+  
+  <input type="number" id="dia" placeholder="Día" min="1" max="31">
+  <input type="number" id="mes" placeholder="Mes" min="1" max="12">
+  <br>
+  <button onclick="intentar()">Intentar</button>
+
+  <div id="resultado"></div>
+
+  <script src="004checkBirthday.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🍳 Elige tus ingredientes</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 30px;
+      text-align: center;
+    }
+    .ingredientes {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      width: 300px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍴 ¿Qué puedes cocinar?</h1>
+  <p>Selecciona los ingredientes que tienes:</p>
+  
+  <div class="ingredientes">
+    <label><input type="checkbox" value="huevo"> Huevo 🥚</label>
+    <label><input type="checkbox" value="pan"> Pan 🍞</label>
+    <label><input type="checkbox" value="queso"> Queso 🧀</label>
+    <label><input type="checkbox" value="tomate"> Tomate 🍅</label>
+    <label><input type="checkbox" value="jamón"> Jamón 🍖</label>
+  </div>
+
+  <button onclick="mostrarRecetas()">Ver recetas posibles</button>
+
+  <div id="resultado"></div>
+
+  <script src="005chooseIngredients.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bananas para Monos</title>
+</head>
+<body>
+  <h1>Consulta los resultados en la ventana de alertas</h1>
+  <script>
+    let entrada = prompt("Ingresa una lista de monos 🐵 y bananas 🍌 (ej: 🐵🍌🍌🍌🐵🍌🐵🍌):");
+
+    let monos = (entrada.match(/🐵/g) || []).length;
+    let bananas = (entrada.match(/🍌/g) || []).length;
+
+    let bananasPorMono = parseInt(prompt("¿Cuántas bananas come cada mono?"), 10);
+
+    let bananasNecesarias = monos * bananasPorMono;
+
+    if (bananas >= bananasNecesarias) {
+      alert(`¡Sí! Hay suficientes bananas 🍌 para los ${monos} monos 🐵.`);
+    } else {
+      alert("¡Oh no! ¡No hay suficientes bananas para los monos! 😭");
+    }
+  </script>
+</body>
+</html>
