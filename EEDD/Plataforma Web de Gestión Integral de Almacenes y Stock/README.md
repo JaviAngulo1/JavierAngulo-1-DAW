@@ -98,7 +98,7 @@
 
 ### Tabla Detallada
 
-```markdown
+
 | **ID**   | **Descripción**                                                                                          | **Prioridad** | **Fuente**              | **Estado**   |
 |----------|----------------------------------------------------------------------------------------------------------|---------------|--------------------------|--------------|
 | RF-01    | Registrar productos con datos como código, descripción, dimensiones, lote y fecha de caducidad.         | Alta          | Cliente                  | Propuesto    |
@@ -116,13 +116,13 @@
 | RF-13    | Generar reportes personalizables en formatos CSV y PDF.                                                   | Media         | Stakeholder Interno      | Propuesto    |
 | RF-14    | Mostrar KPIs sobre eficiencia y costes logísticos.                                                       | Media         | Analista de Negocio      | Propuesto    |
 | RF-15    | Control de acceso por rol, autenticación de dos factores y registro de auditoría.                        | Alta          | Normativa Interna        | Propuesto    |
-```
+
 
 # Requisitos No Funcionales
 
 ### Tabla Detallada
 
-```markdown
+
 | **ID**    | **Descripción**                                                      | **Categoría**    | **Métrica**                  | **Objetivo**         | **Comentarios**                                       |
 |-----------|----------------------------------------------------------------------|------------------|------------------------------|----------------------|-------------------------------------------------------|
 | RNF-01    | Tiempo máximo de respuesta en consultas de inventario.              | Rendimiento      | Tiempo de respuesta          | < 2 segundos         | Probar regularmente con cargas simuladas.             |
@@ -136,7 +136,7 @@
 
 ### Tabla Principal
 
-```markdown
+
 | **ID**   | **Nombre**                        | **Actor(es)**               | **Precondición**                                | **Flujo Principal**                                      | **Flujos Alternativos**                            | **Postcondición**                                      |
 |----------|-----------------------------------|-----------------------------|--------------------------------------------------|----------------------------------------------------------|----------------------------------------------------|--------------------------------------------------------|
 | CU-01   | Registrar producto                | Gestor de almacén           | Usuario autenticado                             | Llenado de formulario y envío                           | Datos inválidos → errores mostrados                | Producto registrado                                   |
@@ -152,11 +152,11 @@
 | CU-11   | Realizar recuento cíclico         | Inventarista                | Producto escaneable                              | Escaneo, ingreso real, ajuste o registro de discrepancia| Error escaneo → repetir                             | Stock actualizado o pendiente de revisión           |
 | CU-12   | Consultar dashboard               | Supervisor                   | Datos actualizados                               | Ingreso al panel, visualización de KPIs                | —                                                  | Supervisión en tiempo real                           |
 | CU-13   | Auditar acciones del sistema      | Auditor                      | Acciones críticas realizadas                     | Filtro por fecha/acción/usuario y consulta              | —                                                  | Acciones registradas y trazables                    |
-```
+
 
 # Matriz de Trazabilidad
 
-```markdown
+
 | **Req. ID** | **Descripción del Requisito**                      | **Objetivo(s)**         | **Caso de Uso / Diseño**            | **Caso de Prueba**              |
 |-------------|----------------------------------------------------|-------------------------|-------------------------------------|---------------------------------|
 | RF-01       | Registro de productos                              | OBJ-01                  | CU-01                               | TP-01                           |
@@ -176,6 +176,6 @@
 | RNF-02      | Interfaz accesible y responsive                    | OBJ-03                  | Diseño UI adaptable                 | TP-15                           |
 | RNF-03      | Cifrado de datos sensibles                         | OBJ-05                  | Seguridad: TLS + AES                | TP-16                           |
 | RNF-04      | Alta disponibilidad del sistema                    | OBJ-03                  | Arquitectura con redundancia        | TP-17                           |
-```
+
 
 
