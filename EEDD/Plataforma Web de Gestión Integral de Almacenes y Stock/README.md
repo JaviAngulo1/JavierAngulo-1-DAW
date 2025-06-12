@@ -130,7 +130,6 @@
 | RNF-03    | Cifrado de datos confidenciales en tránsito y reposo (AES-256).     | Seguridad        | Algoritmo aplicado           | Obligatorio          | Cumple con ISO 27001 / GDPR.                          |
 | RNF-04    | Cumplimiento de WCAG 2.1 (AA) para la interfaz del sistema.         | Usabilidad       | Auditoría de accesibilidad   | Nivel AA             | Recomendada validación externa previa al despliegue.  |
 | RNF-05    | Registro exhaustivo de eventos críticos para trazabilidad total.    | Mantenibilidad   | Eventos registrados          | 100 % trazabilidad   | Verificar regularmente integridad del registro.       |
-```
 
 # Casos de Uso (Resumen)
 
