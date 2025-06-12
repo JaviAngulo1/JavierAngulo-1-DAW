@@ -177,6 +177,7 @@
 | RNF-04      | Alta disponibilidad del sistema                    | OBJ-03                  | Arquitectura con redundancia        | TP-17                           |
 
 
+```mermaid
 stateDiagram-v2
   [*] --> SolicitudRecibida
   SolicitudRecibida --> PreparacionEnCurso : aprobarPedido()
@@ -185,4 +186,5 @@ stateDiagram-v2
   ListoParaEnvio --> PedidoEntregado : confirmarEntrega() / finalizar()
   PedidoEntregado --> [*]
   Anulado --> [*]
+```
 
