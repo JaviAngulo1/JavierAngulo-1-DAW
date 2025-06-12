@@ -91,3 +91,24 @@
 | NF-02     | Adaptabilidad de la interfaz                | OBJ-03                    | UI responsive                       | TP-15                        |
 | NF-03     | Protección de información                   | OBJ-05                    | TLS + AES                           | TP-16                        |
 | NF-04     | Alta disponibilidad                         | OBJ-03                    | Arquitectura redundante             | TP-17                        |
+
+stateDiagram-v2
+  [*] --> Esperando
+  Esperando --> Preparando : confirmar()
+  Esperando --> Cancelado : cancelar() / avisar()
+  Preparando --> Enviado : embalar() / asignarTracking()
+  Enviado --> Recibido : entregar() / cerrar()
+  Recibido --> [*]
+  Cancelado --> [*]
+
+
+sequenceDiagram
+  actor Cliente
+  participant Plataforma
+  Cliente->>Plataforma: Buscar producto
+  Plataforma->>Cliente: Mostrar coincidencias
+  Cliente->>Plataforma: Seleccionar producto
+  Plataforma->>Cliente: Ver detalles
+
+
+
