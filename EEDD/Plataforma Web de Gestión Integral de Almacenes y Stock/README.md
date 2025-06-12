@@ -92,23 +92,90 @@
 | NF-03     | Protección de información                   | OBJ-05                    | TLS + AES                           | TP-16                        |
 | NF-04     | Alta disponibilidad                         | OBJ-03                    | Arquitectura redundante             | TP-17                        |
 
-stateDiagram-v2
-  [*] --> Esperando
-  Esperando --> Preparando : confirmar()
-  Esperando --> Cancelado : cancelar() / avisar()
-  Preparando --> Enviado : embalar() / asignarTracking()
-  Enviado --> Recibido : entregar() / cerrar()
-  Recibido --> [*]
-  Cancelado --> [*]
 
 
-sequenceDiagram
-  actor Cliente
-  participant Plataforma
-  Cliente->>Plataforma: Buscar producto
-  Plataforma->>Cliente: Mostrar coincidencias
-  Cliente->>Plataforma: Seleccionar producto
-  Plataforma->>Cliente: Ver detalles
+# Requisitos Funcionales
 
+### Tabla Detallada
+
+```markdown
+| **ID**   | **Descripción**                                                                                          | **Prioridad** | **Fuente**              | **Estado**   |
+|----------|----------------------------------------------------------------------------------------------------------|---------------|--------------------------|--------------|
+| RF-01    | Registrar productos con datos como código, descripción, dimensiones, lote y fecha de caducidad.         | Alta          | Cliente                  | Propuesto    |
+| RF-02    | Administrar múltiples almacenes y sus ubicaciones internas (pasillos, estanterías, zonas de picking).     | Media         | Analista Funcional       | Propuesto    |
+| RF-03    | Ajustar inventario (entradas, traslados, pérdidas, devoluciones).                                         | Alta          | Cliente                  | Propuesto    |
+| RF-04    | Visualizar niveles de stock en tiempo real y su historial de movimientos.                                | Alta          | Cliente                  | Propuesto    |
+| RF-05    | Crear órdenes de salida para clientes o procesos de producción.                                           | Media         | Responsable Logístico    | Propuesto    |
+| RF-06    | Generar listados de picking con rutas de recolección optimizadas.                                        | Media         | Stakeholder Interno      | Propuesto    |
+| RF-07    | Confirmar la preparación, embalaje y expedición de pedidos.                                              | Media         | Cliente                  | Propuesto    |
+| RF-08    | Integración con transportistas para generar etiquetas y seguimiento.                                     | Media         | Cliente                  | Propuesto    |
+| RF-09    | Notificar automáticamente al alcanzar umbrales mínimos o máximos de stock.                                | Alta          | Responsable de Inventario| Propuesto    |
+| RF-10    | Alertar por email o interfaz sobre entregas tardías, discrepancias o productos por caducar.              | Alta          | Cliente                  | Propuesto    |
+| RF-11    | Programar recuentos cíclicos regulares del inventario.                                                    | Media         | Analista Funcional       | Propuesto    |
+| RF-12    | Mostrar dashboards de inventario con métricas como rotación y antigüedad.                                | Media         | Cliente                  | Propuesto    |
+| RF-13    | Generar reportes personalizables en formatos CSV y PDF.                                                   | Media         | Stakeholder Interno      | Propuesto    |
+| RF-14    | Mostrar KPIs sobre eficiencia y costes logísticos.                                                       | Media         | Analista de Negocio      | Propuesto    |
+| RF-15    | Control de acceso por rol, autenticación de dos factores y registro de auditoría.                        | Alta          | Normativa Interna        | Propuesto    |
+```
+
+# Requisitos No Funcionales
+
+### Tabla Detallada
+
+```markdown
+| **ID**    | **Descripción**                                                      | **Categoría**    | **Métrica**                  | **Objetivo**         | **Comentarios**                                       |
+|-----------|----------------------------------------------------------------------|------------------|------------------------------|----------------------|-------------------------------------------------------|
+| RNF-01    | Tiempo máximo de respuesta en consultas de inventario.              | Rendimiento      | Tiempo de respuesta          | < 2 segundos         | Probar regularmente con cargas simuladas.             |
+| RNF-02    | Capacidad para al menos 1.000 usuarios activos al mismo tiempo.     | Escalabilidad    | Usuarios simultáneos         | ≥ 1.000 usuarios     | Considerar escalabilidad horizontal en diseño.        |
+| RNF-03    | Cifrado de datos confidenciales en tránsito y reposo (AES-256).     | Seguridad        | Algoritmo aplicado           | Obligatorio          | Cumple con ISO 27001 / GDPR.                          |
+| RNF-04    | Cumplimiento de WCAG 2.1 (AA) para la interfaz del sistema.         | Usabilidad       | Auditoría de accesibilidad   | Nivel AA             | Recomendada validación externa previa al despliegue.  |
+| RNF-05    | Registro exhaustivo de eventos críticos para trazabilidad total.    | Mantenibilidad   | Eventos registrados          | 100 % trazabilidad   | Verificar regularmente integridad del registro.       |
+```
+
+# Casos de Uso (Resumen)
+
+### Tabla Principal
+
+```markdown
+| **ID**   | **Nombre**                        | **Actor(es)**               | **Precondición**                                | **Flujo Principal**                                      | **Flujos Alternativos**                            | **Postcondición**                                      |
+|----------|-----------------------------------|-----------------------------|--------------------------------------------------|----------------------------------------------------------|----------------------------------------------------|--------------------------------------------------------|
+| CU-01   | Registrar producto                | Gestor de almacén           | Usuario autenticado                             | Llenado de formulario y envío                           | Datos inválidos → errores mostrados                | Producto registrado                                   |
+| CU-02   | Ajustar inventario                | Gestor de almacén           | Producto existente                               | Selección, tipo de ajuste, cantidad, confirmación       | Inventario negativo → ajuste rechazado             | Inventario actualizado                                |
+| CU-03   | Crear orden de salida             | Responsable de logística     | Stock suficiente                                 | Selección de productos, definición de destino, confirmación | Stock insuficiente → alerta                        | Orden generada y lista para preparar                 |
+| CU-04   | Generar listado de picking        | Sistema                     | Orden de salida creada                           | Agrupación por ubicación, orden secuencial, generación  | —                                                  | Lista optimizada generada                           |
+| CU-05   | Confirmar preparación y envío     | Operario de almacén         | Picking terminado                                | Escaneo, empaquetado, marcado como enviado              | Faltante → aviso al supervisor                      | Pedido marcado como enviado                         |
+| CU-06   | Visualizar stock                  | Usuario                     | Usuario autenticado                             | Ingreso al panel y visualización                        | —                                                  | Usuario informado sobre stock                        |
+| CU-07   | Notificar alerta de stock         | Sistema                     | Umbral de stock alcanzado                        | Detección, generación de alerta, envío                  | —                                                  | Alerta enviada y registrada                          |
+| CU-08   | Crear informe                     | Usuario                     | Datos disponibles                                | Definición de filtros, generación, exportación          | —                                                  | Informe generado en CSV/PDF                          |
+| CU-09   | Gestionar acceso de usuarios      | Administrador               | Cuenta con permisos                              | Configuración de roles y privilegios                    | —                                                  | Accesos actualizados                                 |
+| CU-10   | Integrar con transportistas       | Sistema                     | Pedido listo                                     | Generar etiqueta, consumir API, recibir seguimiento     | Fallo en API → reintento o alerta                  | Envío registrado con seguimiento                     |
+| CU-11   | Realizar recuento cíclico         | Inventarista                | Producto escaneable                              | Escaneo, ingreso real, ajuste o registro de discrepancia| Error escaneo → repetir                             | Stock actualizado o pendiente de revisión           |
+| CU-12   | Consultar dashboard               | Supervisor                   | Datos actualizados                               | Ingreso al panel, visualización de KPIs                | —                                                  | Supervisión en tiempo real                           |
+| CU-13   | Auditar acciones del sistema      | Auditor                      | Acciones críticas realizadas                     | Filtro por fecha/acción/usuario y consulta              | —                                                  | Acciones registradas y trazables                    |
+```
+
+# Matriz de Trazabilidad
+
+```markdown
+| **Req. ID** | **Descripción del Requisito**                      | **Objetivo(s)**         | **Caso de Uso / Diseño**            | **Caso de Prueba**              |
+|-------------|----------------------------------------------------|-------------------------|-------------------------------------|---------------------------------|
+| RF-01       | Registro de productos                              | OBJ-01                  | CU-01                               | TP-01                           |
+| RF-02       | Ajustes de inventario                              | OBJ-01, OBJ-02          | CU-02                               | TP-02                           |
+| RF-03       | Generar órdenes de salida                          | OBJ-01                  | CU-03                               | TP-03                           |
+| RF-04       | Picking optimizado                                 | OBJ-03                  | CU-04                               | TP-04                           |
+| RF-05       | Confirmación de preparación y envío                | OBJ-01                  | CU-05                               | TP-05                           |
+| RF-06       | Visualización de stock                             | OBJ-01, OBJ-02          | CU-06                               | TP-06                           |
+| RF-07       | Alertas automáticas                                | OBJ-02                  | CU-07                               | TP-07                           |
+| RF-08       | Creación de informes                               | OBJ-04                  | CU-08                               | TP-08                           |
+| RF-09       | Gestión de usuarios y accesos                      | OBJ-05                  | CU-09                               | TP-09                           |
+| RF-10       | Integración con transportistas                     | OBJ-03                  | CU-10                               | TP-10                           |
+| RF-11       | Inventario cíclico                                 | OBJ-01                  | CU-11                               | TP-11                           |
+| RF-12       | Dashboard con métricas                             | OBJ-04                  | CU-12                               | TP-12                           |
+| RF-13       | Auditoría de acciones                              | OBJ-05                  | CU-13                               | TP-13                           |
+| RNF-01      | Tiempo de respuesta óptimo                         | OBJ-03                  | Optimización de consultas           | TP-14                           |
+| RNF-02      | Interfaz accesible y responsive                    | OBJ-03                  | Diseño UI adaptable                 | TP-15                           |
+| RNF-03      | Cifrado de datos sensibles                         | OBJ-05                  | Seguridad: TLS + AES                | TP-16                           |
+| RNF-04      | Alta disponibilidad del sistema                    | OBJ-03                  | Arquitectura con redundancia        | TP-17                           |
+```
 
 
