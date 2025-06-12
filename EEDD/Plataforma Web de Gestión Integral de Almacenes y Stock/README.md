@@ -197,3 +197,18 @@ sequenceDiagram
     Cliente->>Plataforma: Elegir artículo específico
     Plataforma->>Cliente: Mostrar información detallada del artículo
 ```
+```mermaid
+flowchart TD
+  Inicio([Comienzo])
+  Inicio --> Seleccion[Elegir artículo]
+  Seleccion --> VerificaStock{¿Disponible?}
+  VerificaStock -- Sí --> Añadir[Incluir en cesta]
+  VerificaStock -- No --> SinStock[Notificar indisponibilidad]
+  Añadir --> Pago[Realizar pago]
+  Pago --> ValidarPago{¿Pago correcto?}
+  ValidarPago -- Sí --> Confirmacion[Finalizar compra]
+  ValidarPago -- No --> ErrorPago[Informar fallo en pago]
+  Confirmacion --> Fin([Terminar])
+  SinStock --> Fin
+  ErrorPago --> Fin
+```
