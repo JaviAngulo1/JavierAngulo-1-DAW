@@ -49,4 +49,52 @@ Un completo y robusto juego de Sudoku implementado en Java, con doble interfaz (
 ---
 
 ## 🗂️ Estructura del Código
+src/
+├── consola/
+│ ├── ISudoku.java
+│ ├── ISudokuResuelto.java
+│ ├── IValidadorSudoku.java
+│ ├── puntoMatriz.java
+│ ├── Sudoku.java
+│ ├── SudokuConsola.java
+│ ├── SudokuResuelto.java
+│ └── ValidadorSudoku.java
+└── interfazGrafica/
+├── DifficultyPanel.java
+├── GamePanel.java
+├── IControladorJuego.java
+├── NumberSelectionPanel.java
+├── PanelReemplazable.java
+└── SudokuGUI.java
+
+---
+### 🔍 Reglas del Sudoku
+
+- Cada fila debe contener los números del 1 al 9 sin repetir.
+- Cada columna debe cumplir lo mismo.
+- Cada subcuadro 3x3 debe ser único.
+
+### 📌 Cómo se Juega
+
+1. Selecciona un nivel de dificultad.
+2. Observa el tablero generado.
+3. Haz clic en una celda vacía o introduce coordenadas (modo texto).
+4. Introduce un número del 1 al 9.
+5. El sistema te informará si es correcto o no.
+6. ¡Completa el tablero para ganar!
+
+---
+
+### ✅ Requisitos Previos
+
+- Java 8 o superior
+- Un IDE como IntelliJ IDEA o Eclipse (opcional)
+
+### 🚀 Compilación Manual
+
+```bash
+git clone [URL_DEL_REPOSITORIO]
+cd sudoku-javi
+javac -d out src/consola/*.java src/interfazGrafica/*.java
+
 
