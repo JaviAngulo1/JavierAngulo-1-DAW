@@ -177,4 +177,12 @@
 | RNF-04      | Alta disponibilidad del sistema                    | OBJ-03                  | Arquitectura con redundancia        | TP-17                           |
 
 
+stateDiagram-v2
+  [*] --> SolicitudRecibida
+  SolicitudRecibida --> PreparacionEnCurso : aprobarPedido()
+  SolicitudRecibida --> Anulado : rechazar() / notificarCliente()
+  PreparacionEnCurso --> ListoParaEnvio : embalarArticulos() / asignarTracking()
+  ListoParaEnvio --> PedidoEntregado : confirmarEntrega() / finalizar()
+  PedidoEntregado --> [*]
+  Anulado --> [*]
 
