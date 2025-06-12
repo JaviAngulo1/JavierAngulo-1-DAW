@@ -49,6 +49,10 @@ Un completo y robusto juego de Sudoku implementado en Java, con doble interfaz (
 ---
 
 ## 🗂️ Estructura del Código
+
+
+
+
 src/
 ├── consola/
 │ ├── ISudoku.java
@@ -66,6 +70,13 @@ src/
 ├── NumberSelectionPanel.java
 ├── PanelReemplazable.java
 └── SudokuGUI.java
+
+
+
+
+
+
+
 
 ---
 ### 🔍 Reglas del Sudoku
