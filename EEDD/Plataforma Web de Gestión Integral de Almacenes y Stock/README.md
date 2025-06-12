@@ -199,25 +199,16 @@ sequenceDiagram
 ```
 ```mermaid
 flowchart TD
-  Inicio([Inicio del proceso])
-  
-  subgraph Selección
-    A[Escoger producto]
-    A --> B{Disponible en inventario?}
-  end
-  
-  B -- Sí --> C[Agregar a la cesta de compra]
-  B -- No --> X[Mostrar mensaje: no disponible]
-
-  C --> D[Continuar a pago]
-  
-  subgraph Pago
-    D --> E{¿Pago completado?}
-    E -- Sí --> F[Confirmar y registrar pedido]
-    E -- No --> Y[Mostrar fallo en el pago]
-  end
-
-  X --> Fin([Fin del flujo])
-  F --> Fin
-  Y --> Fin
+  Inicio([Comienzo])
+  Inicio --> Seleccion[Elegir artículo]
+  Seleccion --> VerificaStock{¿Disponible?}
+  VerificaStock -- Sí --> Añadir[Incluir en cesta]
+  VerificaStock -- No --> SinStock[Notificar indisponibilidad]
+  Añadir --> Pago[Realizar pago]
+  Pago --> ValidarPago{¿Pago correcto?}
+  ValidarPago -- Sí --> Confirmacion[Finalizar compra]
+  ValidarPago -- No --> ErrorPago[Informar fallo en pago]
+  Confirmacion --> Fin([Terminar])
+  SinStock --> Fin
+  ErrorPago --> Fin
 ```
