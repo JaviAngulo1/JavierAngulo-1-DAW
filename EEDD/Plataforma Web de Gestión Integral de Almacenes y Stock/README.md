@@ -188,3 +188,12 @@ stateDiagram-v2
   Anulado --> [*]
 ```
 
+```mermaid
+sequenceDiagram
+    actor Cliente
+    participant Plataforma
+    Cliente->>Plataforma: Buscar artículo en catálogo
+    Plataforma->>Cliente: Devolver coincidencias encontradas
+    Cliente->>Plataforma: Elegir artículo específico
+    Plataforma->>Cliente: Mostrar información detallada del artículo
+```
